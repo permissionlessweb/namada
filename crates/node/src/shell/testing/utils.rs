@@ -28,7 +28,7 @@ impl TestDir {
     /// cleaned up.
     pub fn new() -> Self {
         let temp = tempdir().unwrap();
-        Self(temp.into_path())
+        Self(temp.keep())
     }
 
     /// Get the path of the directory
