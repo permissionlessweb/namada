@@ -278,7 +278,7 @@ where
         _relayer: &Signer,
     ) -> (ModuleExtras, Option<Acknowledgement>) {
         let (extras, ack) = on_recv_packet_execute(&mut self.ctx, packet);
-        (extras, Some(ack))
+        (extras, ack)
     }
 
     fn on_acknowledgement_packet_validate(

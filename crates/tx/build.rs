@@ -14,8 +14,11 @@ fn main() {
     // Tell Cargo that if the given file changes, to rerun this build script.
     println!("cargo:rerun-if-changed={}", PROTO_SRC);
 
-    tonic_build::configure()
+    tonic_prost_build::configure()
         .protoc_arg("--experimental_allow_proto3_optional")
-        .compile_protos(&[format!("{}/types.proto", PROTO_SRC)], &[PROTO_SRC])
+        .compile_protos(
+            &[format!("{}/types.proto", PROTO_SRC)],
+            &[PROTO_SRC.to_string()],
+        )
         .unwrap();
 }

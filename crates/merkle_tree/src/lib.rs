@@ -973,20 +973,14 @@ impl From<Proof> for namada_core::tendermint::merkle::proof::ProofOps {
         use namada_core::tendermint::merkle::proof::ProofOp;
         use prost::Message;
 
-        let mut data = vec![];
-        sub_proof
-            .encode(&mut data)
-            .expect("Encoding proof shouldn't fail");
+        let data = sub_proof.encode_to_vec();
         let sub_proof_op = ProofOp {
             field_type: "ics23_CommitmentProof".to_string(),
             key: key.to_string().as_bytes().to_vec(),
             data,
         };
 
-        let mut data = vec![];
-        base_proof
-            .encode(&mut data)
-            .expect("Encoding proof shouldn't fail");
+        let data = base_proof.encode_to_vec();
         let base_proof_op = ProofOp {
             field_type: "ics23_CommitmentProof".to_string(),
             key: key.to_string().as_bytes().to_vec(),

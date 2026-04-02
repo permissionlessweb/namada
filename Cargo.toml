@@ -109,7 +109,7 @@ arbitrary = {version = "1.4", features = ["derive"]}
 ark-bls12-381 = {version = "0.5"}
 ark-serialize = {version = "0.5"}
 ark-std = "0.5"
-arse-merkle-tree = {package = "nam-sparse-merkle-tree", version = "0.3.3-nam.0", default-features = false, features = ["std", "borsh"]}
+arse-merkle-tree = {package = "nam-sparse-merkle-tree", git = "https://github.com/permissionlessweb/sparse-merkle-tree", default-features = false, features = ["std", "borsh"]}
 assert_cmd = "2.0"
 assert_matches = "1.5"
 async-trait = {version = "0.1"}
@@ -164,14 +164,14 @@ getrandom = "0.3"
 git2 = { version = "0.20", default-features = false }
 group = { version = "0.13.0", default-features = false }
 hyper = { version = "1.6", features = ["full"] }
-ibc = { version = "0.57.0", features = ["serde"] }
+ibc       = { path = "../ibc-rs/ibc", default-features = false, features = [ "serde" ] }
 ibc-derive = "0.10.1"
-ibc-middleware-module = { version = "0.2.0" }
-ibc-middleware-module-macros = { version = "0.2.0" }
-ibc-middleware-overflow-receive = { version = "0.5.0" }
-ibc-middleware-packet-forward = { version = "0.10.0", features = ["borsh"] }
-ibc-testkit = { version = "0.57.0", default-features = false }
-ics23 = "0.12"
+ibc-middleware-module        = { path = "../ibc-middleware/crates/module"}
+ibc-middleware-module-macros = { path = "../ibc-middleware/crates/module-macros"}
+ibc-middleware-overflow-receive = { path = "../ibc-middleware/crates/overflow-receive"}
+ibc-middleware-packet-forward = {  path = "../ibc-middleware/crates/packet-forward", features = ["borsh"] }
+ibc-testkit = { path = "../ibc-rs/ibc-testkit", default-features = false }
+ics23 = { git = "https://github.com/permissionlessweb/ics23", branch = "prost-14.1" }
 usize-set = { version = "0.10", features = ["serialize-borsh", "serialize-serde"] }
 impl-num-traits = "0.2"
 indexmap = { package = "nam-indexmap", version = "2.7.1-nam.0", features = ["borsh-schema", "serde"] }
@@ -211,8 +211,8 @@ primitive-types = "0.13"
 proc-macro2 = "1.0"
 proptest = "=1.6"
 proptest-state-machine = "=0.3.1"
-prost = "0.13"
-prost-types = "0.13"
+prost = "0.14"
+prost-types = "0.14"
 quote = "1.0"
 rand = {version = "0.8", default-features = false}
 rand_core = {version = "0.6", default-features = false}
@@ -239,11 +239,11 @@ syn = { version = "2.0", features = ["full", "extra-traits"] }
 sysinfo = {version = "0.33", default-features = false, features = ["system"]}
 tar = "0.4"
 tempfile = {version = "3.2"}
-tendermint = {version = "0.40.3", features = ["secp256k1"]}
-tendermint-config = "0.40.3"
-tendermint-light-client = "0.40.3"
-tendermint-proto = "0.40.3"
-tendermint-rpc = {version = "0.40.3", default-features = false}
+tendermint = { git = "https://github.com/permissionlessweb/tendermint-rs", features = ["secp256k1"]}
+tendermint-config = { git = "https://github.com/permissionlessweb/tendermint-rs"}
+tendermint-light-client = { git = "https://github.com/permissionlessweb/tendermint-rs"}
+tendermint-proto = { git = "https://github.com/permissionlessweb/tendermint-rs"}
+tendermint-rpc = { git = "https://github.com/permissionlessweb/tendermint-rs", default-features = false}
 test-log = {version = "0.2", default-features = false, features = ["trace"]}
 textwrap-macros = "0.3"
 tiny-bip39 = {version = "2.0"}
@@ -252,10 +252,10 @@ thiserror = "2.0"
 tokio = {version = "1.8", default-features = false}
 tokio-test = "0.4"
 toml = "0.8"
-tonic = "0.12"
-tonic-build = "0.12"
+tonic = "0.14"
+tonic-prost-build = "0.14"
 tower = "0.5"
-tower-abci = "0.19"
+tower-abci = {path = "../tower-abci" }
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-log = "0.2"
