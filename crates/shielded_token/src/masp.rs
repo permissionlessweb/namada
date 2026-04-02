@@ -333,7 +333,7 @@ mod tests {
 
         let tempdir = tempfile::tempdir()
             .expect("expected a temp dir")
-            .into_path();
+            .keep();
         let fake_params_paths =
             [SPEND_NAME, OUTPUT_NAME, CONVERT_NAME].map(|p| tempdir.join(p));
         for path in &fake_params_paths {
@@ -400,7 +400,7 @@ mod tests {
 
         let tempdir = tempfile::tempdir()
             .expect("expected a temp dir")
-            .into_path();
+            .keep();
         // TODO: get masp to export these consts
         let fake_params_paths = [
             (SPEND_NAME, 49848572u64),

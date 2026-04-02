@@ -648,7 +648,7 @@ impl TestDir {
         }
         .unwrap();
         if keep_temp {
-            let path = temp_dir.into_path();
+            let path = temp_dir.keep();
             println!(
                 "{}: \"{}\"",
                 "Keeping test directory at".underline().yellow(),

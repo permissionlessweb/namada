@@ -164,7 +164,7 @@ getrandom = "0.3"
 git2 = { version = "0.20", default-features = false }
 group = { version = "0.13.0", default-features = false }
 hyper = { version = "1.6", features = ["full"] }
-ibc       = { git = "https://github.com/permissionlessweb/ibc-rs", default-features = false, features = [ "serde" ] }
+ibc       = { git = "https://github.com/permissionlessweb/ibc-rs", features = [ "serde" ] }
 ibc-derive = "0.10.1"
 ibc-middleware-module        = {  git = "https://github.com/permissionlessweb/ibc-middleware"}
 ibc-middleware-module-macros = {  git = "https://github.com/permissionlessweb/ibc-middleware" }
