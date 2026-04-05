@@ -164,12 +164,12 @@ getrandom = "0.3"
 git2 = { version = "0.20", default-features = false }
 group = { version = "0.13.0", default-features = false }
 hyper = { version = "1.6", features = ["full"] }
-ibc = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "main" }
+ibc = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "main", features = ["serde"] }
 ibc-derive = "0.10.1"
 ibc-middleware-module = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
 ibc-middleware-module-macros = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
 ibc-middleware-overflow-receive = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
-ibc-middleware-packet-forward = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
+ibc-middleware-packet-forward = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main", features = ["borsh"] }
 ibc-testkit = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "main" }
 ics23 = { git = "https://github.com/permissionlessweb/ics23", branch = "stable" }
 usize-set = { version = "0.10", features = ["serialize-borsh", "serialize-serde"] }
@@ -239,7 +239,7 @@ syn = { version = "2.0", features = ["full", "extra-traits"] }
 sysinfo = {version = "0.33", default-features = false, features = ["system"]}
 tar = "0.4"
 tempfile = {version = "3.2"}
-tendermint = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
+tendermint = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main", features = ["secp256k1"] }
 tendermint-config = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
 tendermint-light-client = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
 tendermint-proto = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
