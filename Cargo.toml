@@ -322,4 +322,6 @@ opt-level = 3
 # Fork patches (managed by dep-switch.py)
 
 # Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
 nam-blst = { path = "../nam-blst/bindings/rust" }
