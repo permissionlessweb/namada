@@ -85,7 +85,7 @@ namada_parameters = { version = "0.251.0", path = "crates/parameters" }
 namada_proof_of_stake = { version = "0.251.0", path = "crates/proof_of_stake" }
 namada_replay_protection = { version = "0.251.0", path = "crates/replay_protection" }
 namada_node = { version = "0.251.0", path = "crates/node" }
-namada_sdk = { version = "0.251.0", path = "crates/sdk", default-features = false }
+namada_sdk = { path = "crates/sdk" }
 namada_shielded_token = { version = "0.251.0", path = "crates/shielded_token" }
 namada_state = { version = "0.251.0", path = "crates/state" }
 namada_storage = { version = "0.251.0", path = "crates/storage" }
@@ -109,7 +109,7 @@ arbitrary = {version = "1.4", features = ["derive"]}
 ark-bls12-381 = {version = "0.5"}
 ark-serialize = {version = "0.5"}
 ark-std = "0.5"
-arse-merkle-tree = { package = "nam-sparse-merkle-tree", git = "https://github.com/permissionlessweb/sparse-merkle-tree", branch = "main", features = ["std", "borsh"], default-features = false }
+arse-merkle-tree = { package = "nam-sparse-merkle-tree", path = "../sparse-merkle-tree", default-features = false, features = ["borsh", "std"] }
 assert_cmd = "2.0"
 assert_matches = "1.5"
 async-trait = {version = "0.1"}
@@ -164,14 +164,14 @@ getrandom = "0.3"
 git2 = { version = "0.20", default-features = false }
 group = { version = "0.13.0", default-features = false }
 hyper = { version = "1.6", features = ["full"] }
-ibc = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "main", features = ["serde"] }
+ibc = { path = "../ibc-rs/ibc", features = ["serde"] }
 ibc-derive = "0.10.1"
-ibc-middleware-module = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
-ibc-middleware-module-macros = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
-ibc-middleware-overflow-receive = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main" }
-ibc-middleware-packet-forward = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "main", features = ["borsh"] }
-ibc-testkit = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "main" }
-ics23 = { git = "https://github.com/permissionlessweb/ics23", branch = "stable" }
+ibc-middleware-module = { path = "../ibc-middleware/crates/module" }
+ibc-middleware-module-macros = { path = "../ibc-middleware/crates/module-macros" }
+ibc-middleware-overflow-receive = { path = "../ibc-middleware/crates/overflow-receive" }
+ibc-middleware-packet-forward = { path = "../ibc-middleware/crates/packet-forward", features = ["borsh"] }
+ibc-testkit = { path = "../ibc-rs/ibc-testkit" }
+ics23 = { path = "../ics23/rust" }
 usize-set = { version = "0.10", features = ["serialize-borsh", "serialize-serde"] }
 impl-num-traits = "0.2"
 indexmap = { package = "nam-indexmap", version = "2.7.1-nam.0", features = ["borsh-schema", "serde"] }
@@ -239,11 +239,11 @@ syn = { version = "2.0", features = ["full", "extra-traits"] }
 sysinfo = {version = "0.33", default-features = false, features = ["system"]}
 tar = "0.4"
 tempfile = {version = "3.2"}
-tendermint = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main", features = ["secp256k1"] }
-tendermint-config = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
-tendermint-light-client = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
-tendermint-proto = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
-tendermint-rpc = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "main" }
+tendermint = { path = "../tendermint-rs/tendermint", features = ["secp256k1"] }
+tendermint-config = { path = "../tendermint-rs/config" }
+tendermint-light-client = { path = "../tendermint-rs/light-client" }
+tendermint-proto = { path = "../tendermint-rs/proto" }
+tendermint-rpc = { path = "../tendermint-rs/rpc" }
 test-log = {version = "0.2", default-features = false, features = ["trace"]}
 textwrap-macros = "0.3"
 tiny-bip39 = {version = "2.0"}
@@ -255,7 +255,7 @@ toml = "0.8"
 tonic = "0.14"
 tonic-prost-build = "0.14"
 tower = "0.5"
-tower-abci = { git = "https://github.com/permissionlessweb/tower-abci", branch = "main" }
+tower-abci = { path = "../tower-abci" }
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-log = "0.2"
@@ -292,4 +292,34 @@ opt-level = 3
 # Fork patches (managed by dep-switch.py)
 
 # Fork patches (managed by dep-switch.py)
-nam-blst = { git = "https://github.com/permissionlessweb/blst", branch = "master" }
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+
+# Fork patches (managed by dep-switch.py)
+nam-blst = { path = "../nam-blst/bindings/rust" }
