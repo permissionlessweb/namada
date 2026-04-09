@@ -85,7 +85,7 @@ namada_parameters = { version = "0.251.0", path = "crates/parameters" }
 namada_proof_of_stake = { version = "0.251.0", path = "crates/proof_of_stake" }
 namada_replay_protection = { version = "0.251.0", path = "crates/replay_protection" }
 namada_node = { version = "0.251.0", path = "crates/node" }
-namada_sdk = { path = "crates/sdk" }
+namada_sdk = { path = "crates/sdk", default-features = false }
 namada_shielded_token = { version = "0.251.0", path = "crates/shielded_token" }
 namada_state = { version = "0.251.0", path = "crates/state" }
 namada_storage = { version = "0.251.0", path = "crates/storage" }
@@ -288,6 +288,7 @@ overflow-checks = true
 opt-level = 3
 
 [patch.crates-io]
+
 
 
 
