@@ -2,56 +2,52 @@
 resolver = "2"
 
 members = [
-  "crates/account",
-  "crates/apps",
-  "crates/apps_lib",
-  "crates/benches",
-  "crates/controller",
-  "crates/core",
-  "crates/encoding_spec",
-  "crates/ethereum_bridge",
-  "crates/events",
-  "crates/gas",
-  "crates/governance",
-  "crates/ibc",
-  "crates/io",
-  "crates/light_sdk",
-  "crates/macros",
-  "crates/migrations",
-  "crates/merkle_tree",
-  "crates/parameters",
-  "crates/proof_of_stake",
-  "crates/replay_protection",
-  "crates/node",
-  "crates/sdk",
-  "crates/shielded_token",
-  "crates/state",
-  "crates/storage",
-  "crates/systems",
-  "crates/test_utils",
-  "crates/tests",
-  "crates/token",
-  "crates/trans_token",
-  "crates/tx",
-  "crates/tx_env",
-  "crates/tx_prelude",
-  "crates/vm",
-  "crates/vm_env",
-  "crates/vote_ext",
-  "crates/vp",
-  "crates/vp_env",
-  "crates/vp_prelude",
-  "crates/wallet",
-  "examples",
-  "fuzz",
+    "crates/account",
+    "crates/apps",
+    "crates/apps_lib",
+    "crates/benches",
+    "crates/controller",
+    "crates/core",
+    "crates/encoding_spec",
+    "crates/ethereum_bridge",
+    "crates/events",
+    "crates/gas",
+    "crates/governance",
+    "crates/ibc",
+    "crates/io",
+    "crates/light_sdk",
+    "crates/macros",
+    "crates/merkle_tree",
+    "crates/migrations",
+    "crates/node",
+    "crates/parameters",
+    "crates/proof_of_stake",
+    "crates/replay_protection",
+    "crates/sdk",
+    "crates/shielded_token",
+    "crates/state",
+    "crates/storage",
+    "crates/systems",
+    "crates/test_utils",
+    "crates/tests",
+    "crates/token",
+    "crates/trans_token",
+    "crates/tx",
+    "crates/tx_env",
+    "crates/tx_prelude",
+    "crates/vm",
+    "crates/vm_env",
+    "crates/vote_ext",
+    "crates/vp",
+    "crates/vp_env",
+    "crates/vp_prelude",
+    "crates/wallet",
+    "examples",
+    "fuzz",
 ]
 
 # wasm packages have to be built separately
-exclude = [
-  "wasm",
-  "wasm_for_tests",
-  "test_fixtures",
-]
+exclude = ["test_fixtures", "wasm", "wasm_for_tests"]
 
 [workspace.package]
 authors = ["Heliax AG <hello@heliax.dev>"]
@@ -79,13 +75,13 @@ namada_ibc = { version = "0.251.0", path = "crates/ibc" }
 namada_io = { version = "0.251.0", path = "crates/io" }
 namada_light_sdk = { version = "0.251.0", path = "crates/light_sdk" }
 namada_macros = { version = "0.251.0", path = "crates/macros" }
-namada_migrations = { version = "0.251.0", path = "crates/migrations" }
 namada_merkle_tree = { version = "0.251.0", path = "crates/merkle_tree" }
+namada_migrations = { version = "0.251.0", path = "crates/migrations" }
+namada_node = { version = "0.251.0", path = "crates/node" }
 namada_parameters = { version = "0.251.0", path = "crates/parameters" }
 namada_proof_of_stake = { version = "0.251.0", path = "crates/proof_of_stake" }
 namada_replay_protection = { version = "0.251.0", path = "crates/replay_protection" }
-namada_node = { version = "0.251.0", path = "crates/node" }
-namada_sdk = { path = "crates/sdk", default-features = false }
+namada_sdk = { path = "crates/sdk" }
 namada_shielded_token = { version = "0.251.0", path = "crates/shielded_token" }
 namada_state = { version = "0.251.0", path = "crates/state" }
 namada_storage = { version = "0.251.0", path = "crates/storage" }
@@ -105,29 +101,29 @@ namada_vp_env = { version = "0.251.0", path = "crates/vp_env" }
 namada_vp_prelude = { version = "0.251.0", path = "crates/vp_prelude" }
 namada_wallet = { version = "0.251.0", path = "crates/wallet" }
 
-arbitrary = {version = "1.4", features = ["derive"]}
-ark-bls12-381 = {version = "0.5"}
-ark-serialize = {version = "0.5"}
+arbitrary = { version = "1.4", features = ["derive"] }
+ark-bls12-381 = { version = "0.5" }
+ark-serialize = { version = "0.5" }
 ark-std = "0.5"
 arse-merkle-tree = { package = "nam-sparse-merkle-tree", git = "https://github.com/permissionlessweb/sparse-merkle-tree", branch = "zk-mvp", default-features = false, features = ["borsh", "std"] }
 assert_cmd = "2.0"
 assert_matches = "1.5"
-async-trait = {version = "0.1"}
+async-trait = { version = "0.1" }
 base58 = "0.2"
 base64 = "0.22"
 bech32 = "0.11"
-bimap = {version = "0.6", features = ["serde"]}
+bimap = { version = "0.6", features = ["serde"] }
 bip32 = "0.5"
 bit-set = "0.8"
 bitflags = { version = "2.5", features = ["serde"] }
 blake2b-rs = "0.2"
+borsh = { version = "1.2", features = ["unstable__schema", "derive"] }
 bridgetree = { package = "leanbridgetree", version = "0.3.0", features = ["borsh"] }
 byte-unit = "5.1"
 byteorder = "1.4"
 bytes = "1.1"
-borsh = {version = "1.2", features = ["unstable__schema", "derive"]}
 cargo_metadata = "0.19"
-chrono = {version = "0.4", default-features = false, features = ["clock", "std"]}
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
 circular-queue = "0.2"
 clap = { version = "4.5", default-features = false }
 clap_complete = "4.5"
@@ -172,16 +168,15 @@ ibc-middleware-overflow-receive = { git = "https://github.com/permissionlessweb/
 ibc-middleware-packet-forward = { git = "https://github.com/permissionlessweb/ibc-middleware", branch = "zk-mvp", features = ["borsh"] }
 ibc-testkit = { git = "https://github.com/permissionlessweb/ibc-rs", branch = "zk-mvp" }
 ics23 = { git = "https://github.com/permissionlessweb/ics23", branch = "zk-mvp" }
-usize-set = { version = "0.10", features = ["serialize-borsh", "serialize-serde"] }
 impl-num-traits = "0.2"
 indexmap = { package = "nam-indexmap", version = "2.7.1-nam.0", features = ["borsh-schema", "serde"] }
 itertools = "0.14"
 jubjub = { package = "nam-jubjub", version = "1.10.1-nam.1" }
-k256 = { version = "0.13", default-features = false, features = ["ecdsa", "pkcs8", "precomputed-tables", "serde", "std"]}
+k256 = { version = "0.13", default-features = false, features = ["ecdsa", "pkcs8", "precomputed-tables", "serde", "std"] }
 kdam = "0.6"
 konst = { version = "0.3", default-features = false }
 lazy_static = "1.4"
-ledger-lib = { package="nam-ledger-lib", version = "0.1.1-nam.0", default-features = false, features = ["transport_tcp"] }
+ledger-lib = { package = "nam-ledger-lib", version = "0.1.1-nam.0", default-features = false, features = ["transport_tcp"] }
 ledger-namada-rs = { package = "nam-ledger-namada-rs", version = "0.0.1-nam.0" }
 # Has to match ledger-namada-rs dep version
 ledger-transport = "0.10.0"
@@ -193,13 +188,13 @@ linkme = "0.3"
 madato = "0.7"
 masp_primitives = "3.0.9"
 masp_proofs = { version = "3.0.9", default-features = false, features = ["local-prover"] }
-num256 = "0.6"
-num_cpus = "1.13"
-num_enum = "0.7"
 num-derive = "0.4"
 num-integer = "0.1"
 num-rational = "0.4"
 num-traits = "0.2"
+num256 = "0.6"
+num_cpus = "1.13"
+num_enum = "0.7"
 once_cell = "1.8"
 orion = "0.17"
 owo-colors = "4.1"
@@ -214,17 +209,17 @@ proptest-state-machine = "=0.3.1"
 prost = "0.14"
 prost-types = "0.14"
 quote = "1.0"
-rand = {version = "0.8", default-features = false}
-rand_core = {version = "0.6", default-features = false}
+rand = { version = "0.8", default-features = false }
+rand_core = { version = "0.6", default-features = false }
 rayon = "1.5"
 regex = "1.10"
 reqwest = { version = "0.12", features = ["json", "zstd"] }
 ripemd = "0.1"
 rlimit = "0.10"
-rocksdb = {version = "0.23", features = ["zstd", "bindgen-runtime"], default-features = false}
+rocksdb = { version = "0.23", features = ["zstd", "bindgen-runtime"], default-features = false }
 rpassword = "7.3"
 rustversion = "1.0"
-serde = {version = "1.0", features = ["derive"]}
+serde = { version = "1.0", features = ["derive"] }
 serde_bytes = "0.11"
 serde_json = "1.0"
 serde_tuple = "1.1"
@@ -236,20 +231,20 @@ smooth-operator = "0.7"
 strum = { version = "0.27", features = ["derive"] }
 syn = { version = "2.0", features = ["full", "extra-traits"] }
 # sysinfo with disabled multithread feature
-sysinfo = {version = "0.33", default-features = false, features = ["system"]}
+sysinfo = { version = "0.33", default-features = false, features = ["system"] }
 tar = "0.4"
-tempfile = {version = "3.2"}
+tempfile = { version = "3.2" }
 tendermint = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "zk-mvp", features = ["secp256k1"] }
 tendermint-config = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "zk-mvp" }
 tendermint-light-client = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "zk-mvp" }
 tendermint-proto = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "zk-mvp" }
 tendermint-rpc = { git = "https://github.com/permissionlessweb/tendermint-rs", branch = "zk-mvp" }
-test-log = {version = "0.2", default-features = false, features = ["trace"]}
+test-log = { version = "0.2", default-features = false, features = ["trace"] }
 textwrap-macros = "0.3"
-tiny-bip39 = {version = "2.0"}
-tiny-keccak = { version = "2.0", features = ["keccak"] }
 thiserror = "2.0"
-tokio = {version = "1.8", default-features = false}
+tiny-bip39 = { version = "2.0" }
+tiny-keccak = { version = "2.0", features = ["keccak"] }
+tokio = { version = "1.8", default-features = false }
 tokio-test = "0.4"
 toml = "0.8"
 tonic = "0.14"
@@ -259,11 +254,11 @@ tower-abci = { git = "https://github.com/permissionlessweb/tower-abci", branch =
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-log = "0.2"
-tracing-subscriber = {version = "0.3", default-features = false, features = ["env-filter", "fmt"]}
+tracing-subscriber = { version = "0.3", default-features = false, features = ["env-filter", "fmt"] }
 typed-builder = "0.20"
 uint = "0.10"
+usize-set = { version = "0.10", features = ["serialize-borsh", "serialize-serde"] }
 warp = "0.3"
-wasmparser = "0.121"
 wasm-instrument = { package = "nam-wasm-instrument", version = "0.5.2", features = ["sign_ext"] }
 wasmer = "4.3.5"
 wasmer-cache = "4.3.5"
@@ -271,6 +266,7 @@ wasmer-compiler = "4.3.5"
 wasmer-compiler-singlepass = "4.3.5"
 wasmer-types = "4.3.5"
 wasmer-vm = "4.3.5"
+wasmparser = "0.121"
 wasmtimer = "0.4"
 winapi = "0.3"
 xorf = { version = "0.11", features = ["serde"] }
@@ -288,24 +284,5 @@ overflow-checks = true
 opt-level = 3
 
 [patch.crates-io]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 nam-blst = { git = "https://github.com/permissionlessweb/blst", branch = "zk-mvp" }
